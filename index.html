@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Működik!</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(-45deg, #ff6b6b, #6c5ce7, #00cec9, #fdcb6e);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .container {
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        font-size: 5rem;
+        text-shadow: 0 0 20px rgba(255,255,255,0.8);
+        animation: pulse 1.5s infinite;
+    }
+
+    p {
+        margin-top: 15px;
+        font-size: 1.3rem;
+        opacity: 0.9;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    .emoji {
+        font-size: 4rem;
+        display: block;
+        animation: spin 4s linear infinite;
+        margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        background: white;
+        color: #6c5ce7;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <span class="emoji">🚀</span>
+    <h1>MŰKÖDIK!</h1>
+    <p>Gratulálok, az oldal sikeresen betöltődött.</p>
+    <button onclick="showMessage()">Kattints ide</button>
+</div>
+
+<script>
+function showMessage() {
+    alert("🎉 Tényleg működik!");
+}
+</script>
+
+</body>
+</html>
