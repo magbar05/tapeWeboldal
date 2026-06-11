@@ -3,103 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Működik!</title>
+<title>Tape - Hamarosan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+:root{
+    --bg:#0a0a0a;
+    --card:#111111;
+    --text:#ffffff;
+    --muted:#8b8b8b;
+    --accent:#ff3b3b;
+}
 
-    body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(-45deg, #ff6b6b, #6c5ce7, #00cec9, #fdcb6e);
-        background-size: 400% 400%;
-        animation: gradient 10s ease infinite;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top, #151515 0%, #0a0a0a 60%);
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
 
-    .container {
-        text-align: center;
-        color: white;
-    }
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,59,59,.08);
+    border-radius:50%;
+    filter:blur(120px);
+    animation:float 8s ease-in-out infinite;
+}
 
-    h1 {
-        font-size: 5rem;
-        text-shadow: 0 0 20px rgba(255,255,255,0.8);
-        animation: pulse 1.5s infinite;
-    }
+.container{
+    text-align:center;
+    z-index:2;
+    padding:40px;
+}
 
-    p {
-        margin-top: 15px;
-        font-size: 1.3rem;
-        opacity: 0.9;
-    }
+.logo{
+    width:220px;
+    max-width:70vw;
+    margin-bottom:40px;
+    animation:fadeUp 1.2s ease;
+    filter:drop-shadow(0 0 30px rgba(255,255,255,.08));
+}
 
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-    }
+h1{
+    font-size:clamp(3rem,8vw,6rem);
+    font-weight:600;
+    letter-spacing:-2px;
+    animation:fadeUp 1.4s ease;
+}
 
-    .emoji {
-        font-size: 4rem;
-        display: block;
-        animation: spin 4s linear infinite;
-        margin-bottom: 20px;
-    }
+p{
+    margin-top:15px;
+    color:var(--muted);
+    font-size:1.1rem;
+    animation:fadeUp 1.6s ease;
+}
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
+.loader{
+    width:180px;
+    height:4px;
+    background:#1d1d1d;
+    margin:35px auto 0;
+    border-radius:999px;
+    overflow:hidden;
+}
 
-    button {
-        margin-top: 25px;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 30px;
-        font-size: 1rem;
-        cursor: pointer;
-        background: white;
-        color: #6c5ce7;
-        transition: 0.3s;
-    }
+.loader span{
+    display:block;
+    width:40%;
+    height:100%;
+    background:var(--accent);
+    border-radius:999px;
+    animation:loading 2s infinite ease-in-out;
+}
 
-    button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+@keyframes loading{
+    0%{transform:translateX(-100%);}
+    100%{transform:translateX(350%);}
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-30px);
+    }
+}
 </style>
 </head>
 <body>
 
 <div class="container">
-    <span class="emoji">🚀</span>
-    <h1>MŰKÖDIK!</h1>
-    <p>Gratulálok, az oldal sikeresen betöltődött.</p>
-    <button onclick="showMessage()">Kattints ide</button>
-</div>
 
-<script>
-function showMessage() {
-    alert("🎉 Tényleg működik!");
-}
-</script>
+    <img src="tape.jpg" alt="Tape Logo" class="logo">
+
+    <h1>Hamarosan...</h1>
+
+    <p>Valami új készül a Tape-nél.</p>
+
+    <div class="loader">
+        <span></span>
+    </div>
+
+</div>
 
 </body>
 </html>
