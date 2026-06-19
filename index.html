@@ -15,18 +15,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             color: #ffffff;
-            background-color: #111; /* Sötét alap, ha a kép nem töltene be */
+            background-color: #111;
         }
 
         nav {
-            background-color: rgba(0, 0, 0, 0.7); /* Félig átlátszó fekete menü sáv */
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 15px;
-            position: fixed; /* A fixed miatt mindig a képernyő tetején lebeg, a képek felett */
+            position: fixed;
             width: 100%;
             top: 0;
             text-align: center;
             z-index: 100;
-            backdrop-filter: blur(10px); /* Ez is kap egy kis üveghatást */
+            backdrop-filter: blur(10px);
+            box-sizing: border-box; 
         }
 
         nav a {
@@ -36,66 +37,43 @@
             font-weight: bold;
             font-size: 1.2rem;
             transition: color 0.3s;
+            display: inline-block;
         }
 
         nav a:hover {
             color: #2ed573;
         }
 
-        /* 2. Szekciók (A nagy hátterek) */
         section {
-            min-height: 100vh; /* A 'vh' a képernyő magasságának százaléka. A 100vh kitölti a teljes képernyőt. */
-            background-size: cover; /* A kép kitölti a rendelkezésre álló helyet, nem torzul */
-            background-position: center; /* Középre igazítja a képet */
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center; /* Függőlegesen középre húzza a benne lévő buborékot */
-            padding-top: 60px; /* Helyet hagyunk a fenti menünek */
+            align-items: center;
+            padding-top: 60px;
             box-sizing: border-box;
         }
 
-        /* Itt adjuk meg az adott témákhoz illő háttérképeket (később kicserélheted a sajátjaidra) */
-        #kezdooldal {
-            background-image: url('img/kezdolap/kezdooldal.JPG');
-        }
-        
-        #szabalyok {
-            /* Gombás, spórás, erdei hangulatú kép a játékfejlesztéshez */
-            background-image: url('img/kezdolap/szabalyok.JPG');
-        }
-        
-        #kozosseg {
-            /* Dinamikus, versenypályás hangulatú kép */
-            background-image: url('img/kezdolap/kozosseg.JPG');
-        }
+        #kezdooldal { background-image: url('img/kezdolap/kezdooldal.JPG'); }
+        #szabalyok { background-image: url('img/kezdolap/szabalyok.JPG'); }
+        #kozosseg { background-image: url('img/kezdolap/kozosseg.JPG'); }
+        #shop { background-image: url('img/kezdolap/shop.JPG'); }
+        #korabbi_bajnoksagok { background-image: url('img/kezdolap/korabbi_tape.JPG'); }
+        #helyszin { background-image: url('img/kezdolap/helyszin.JPG'); }
 
-        #shop {
-            background-image: url('img/kezdolap/shop.JPG');
-        }
-
-        #korabbi_bajnoksagok {
-            background-image: url('img/kezdolap/korabbi_tape.JPG');
-        }
-
-        #helyszin {
-            background-image: url('img/kezdolap/helyszin.JPG');
-        }
-
-        /* 3. A Varázslat: A Félkör alakú Átlátszó Buborék */
         .buborek {
-            background: rgba(30, 30, 45, 0.75); /* A negyedik érték (0.75) az átlátszóságot jelenti */
-            backdrop-filter: blur(8px); /* EZ csinálja a modern elmosódást a buborék mögött! */
-            width: 45%; /* A képernyő majdnem felét elfoglalja */
-            min-height: 50vh; /* Szép nagy, magas buborék */
-            
-            /* Így lesz félkör: bal felső (0), jobb felső (300px lekerekítés), jobb alsó (300px), bal alsó (0) */
+            background: rgba(30, 30, 45, 0.75);
+            backdrop-filter: blur(8px);
+            width: 45%;
+            min-height: 50vh;
             border-radius: 0 300px 300px 0; 
-            
-            padding: 40px 80px 40px 50px; /* Belső üres hely, hogy a szöveg ne érjen a buborék kerek széléhez */
+            padding: 40px 80px 40px 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start; /* Balra igazítja a szöveget a buborékon belül */
-            box-shadow: 5px 0 25px rgba(0,0,0,0.5); /* Kis árnyékot vet, hogy térbeli legyen */
+            align-items: flex-start;
+            box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+            box-sizing: border-box; /* Fontos a padding miatt! */
         }
 
         .buborek h2 {
@@ -106,7 +84,7 @@
         }
 
         .buborek p {
-            line-height: 1.6; /* Kényelmesebb sorköz az olvasáshoz */
+            line-height: 1.6;
             font-size: 1.1rem;
             margin-bottom: 30px;
         }
@@ -116,15 +94,55 @@
             background-color: #ff4757;
             color: white;
             padding: 12px 30px;
-            border-radius: 25px; /* Kerekített gomb a játékos hatásért */
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            transition: all 0.3s ease; /* Finom animáció az egerészéshez */
+            transition: all 0.3s ease;
         }
 
         .gomb:hover {
             background-color: #ff6b81;
-            transform: translateX(10px); /* Ha ráviszed az egeret, finoman jobbra csúszik */
+            transform: translateX(10px);
+        }
+
+        .terkep-keret {
+            width: 100%;
+        }
+
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px;
+            }
+            
+            nav a {
+                margin: 5px 10px; 
+                font-size: 1rem; 
+            }
+
+            section {
+                padding-top: 100px;
+            }
+
+            .buborek {
+                width: 90%; 
+                min-height: auto;
+                padding: 30px 20px 30px 20px; 
+                border-radius: 0 50px 50px 0; 
+            }
+
+            .buborek h2 {
+                font-size: 2rem; 
+            }
+
+            .buborek p {
+                font-size: 1rem;
+            }
+
+            .gomb {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
