@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAPE Shop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('img/kezdolap/shop.JPG');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .tartalom-doboz {
+            background: rgba(30, 30, 45, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 40px;
+            max-width: 1000px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        h1 { color: #2ed573; font-size: 2.8rem; margin-bottom: 10px; }
+        p.leiras { font-size: 1.1rem; color: #dfe4ea; margin-bottom: 40px; }
+
+        h2 { color: #ff4757; margin-top: 40px; border-bottom: 2px solid rgba(255, 71, 87, 0.3); padding-bottom: 10px; display: inline-block;}
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .termek-kartya {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .termek-kartya:hover {
+            transform: translateY(-10px);
+            border-color: rgba(46, 213, 115, 0.3);
+        }
+
+        .termek-kep {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* Zokni kártya különleges stílusa kép nélkül */
+        .zokni-kartya {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 270px;
+        }
+
+        .termek-nev {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .kapcsolat-doboz {
+            margin-top: 60px;
+            background: rgba(255, 71, 87, 0.15);
+            border: 2px solid rgba(255, 71, 87, 0.4);
+            padding: 30px;
+            border-radius: 25px;
+        }
+
+        .email-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2ed573;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .vissza-gomb {
+            display: inline-block;
+            background-color: #ff4757;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tartalom-doboz">
+        <h1>TAPE Shop</h1>
+        <p class="leiras">Böngészd végig a hivatalos TAPE termékeket!</p>
+        
+        <h2>TAPE Pólók</h2>
+        <div class="shop-grid">
+            <div class="termek-kartya"><img src="../img/shop/fekete.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Fekete Póló</div></div>
+            <div class="termek-kartya"><img src="../img/shop/kek.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Kék Póló</div></div>
+            <div class="termek-kartya"><img src="../img/shop/lila.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Lila Póló</div></div>
+            <div class="termek-kartya"><img src="../img/shop/piros.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Piros Póló</div></div>
+            <div class="termek-kartya"><img src="../img/shop/sarga.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Sárga Póló</div></div>
+            <div class="termek-kartya"><img src="../img/shop/szurke.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Szürke Póló</div></div>
+            <div class="termek-kartya"><img src="../img/shop/zold.jpg" alt="Póló" class="termek-kep"><div class="termek-nev">Zöld Póló</div></div>
+        </div>
+
+        <h2>Kiegészítők</h2>
+        <div class="shop-grid">
+            <div class="termek-kartya zokni-kartya">
+                <div class="termek-nev">TAPE Zokni</div>
+            </div>
+        </div>
+
+        <div class="kapcsolat-doboz">
+            <h3>Rendelés</h3>
+            <p>Rendeléshez vedd fel velünk a kapcsolatot:</p>
+            <a href="mailto:tapehungary@gmail.com" class="email-link">tapehungary@gmail.com</a>
+        </div>
+
+        <a href="../index.html" class="vissza-gomb">Vissza a főoldalra</a>
+    </div>
+
+</body>
+</html>

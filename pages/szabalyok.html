@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAPE Szabályzat</title>
+    <style>
+        /* Ugyanaz a sötét, modern téma */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('img/kezdolap/szabalyok.JPG'); /* Opcionális háttér */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .tartalom-doboz {
+            background: rgba(30, 30, 45, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 40px;
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        h1 { color: #2ed573; font-size: 2.5rem; margin-bottom: 20px; text-align: center; }
+        h2 { color: #ff4757; margin-top: 40px; border-bottom: 2px solid rgba(255, 71, 87, 0.3); padding-bottom: 10px; }
+        h3 { color: #feca57; margin-top: 20px; }
+        
+        p, li { line-height: 1.8; font-size: 1.05rem; color: #dfe4ea; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+
+        .vissza-gomb {
+            display: inline-block;
+            background-color: #ff4757;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 40px;
+            transition: 0.3s;
+        }
+
+        .vissza-gomb:hover { transform: scale(1.05); background-color: #ff6b81; }
+    </style>
+</head>
+<body>
+
+    <div class="tartalom-doboz">
+        <h1>A TAPE Hivatalos Szabályzata</h1>
+        
+        <h2>1. A Játék Alapjai</h2>
+        <ul>
+            <li><strong>A játék célja:</strong> Hogy a csapatod több pontot szerezzen, mint az ellenfélé.</li>
+            <li>A játékot leginkább a sprintek, illetve a labda kézzel-lábbal történő passzolgatása jellemezi.</li>
+            <li>Két darab öt fős csapat játssza, cserékkel és bírókkal.</li>
+            <li>Egy meccs általában 4 negyedből áll, ahol minden negyed 15 perces. A bajnoki meccsek azonban csak két 10 perces félidőből állnak.</li>
+            <li>A pálya vadregényes, gyakran természeti akadályokat (pl. fákat, bokrokat) is tartalmaz.</li>
+        </ul>
+
+        <h2>2. A Pálya Felépítése és Területei</h2>
+        
+        <h3>Térfelek</h3>
+        <ul>
+            <li>A saját térfeleden megfoghatod az ellenfeleket, a másik térfélen pedig ők kaphatnak el téged.</li>
+            <li>Ha a labda nálad van, a saját térfeleden is megfoghat az ellenfél.</li>
+            <li>A labdát az egyes térfeleken belül bárhonnan bárhova passzolhatod.</li>
+        </ul>
+
+        <h3>Bázisok (90-100 cm)</h3>
+        <ul>
+            <li>Ha a labdával együtt vagy az ellenfél bázisában, nem foghatnak meg. Azonban, amint eldobtátok a labdát, azonnali veszélyben vagytok; a bázis csak a labdával együtt ad védelmet.</li>
+            <li>A saját bázisodon csak labda nélkül futhatsz át. Ha ott van a labda, csak egy másik labdával léphetsz be pontszerzés céljából.</li>
+            <li>A saját bázisodon tilos megállni; aki megteszi, az meghal.</li>
+            <li>Bázisba érkezésnél az első láb legeleje számít a vonal érintésekor.</li>
+        </ul>
+
+        <h3>Udvarok (360-370 cm)</h3>
+        <ul>
+            <li>A bázis körüli 1-2 méteres területet jelenti.</li>
+            <li>Az udvaron belül folyamatos futó mozgást kell végezni, sem megállni, sem egyhelyben futni nem szabad.</li>
+        </ul>
+
+        <h3>Semleges Terület (370-380 cm)</h3>
+        <ul>
+            <li>Elválasztja a két térfelet.</li>
+            <li>Itt a játékosok nem foghatják meg egymást, kivéve a labdás embert.</li>
+            <li><strong>Passzolás:</strong> Egy pattanás nélküli dobás nem haladhat át a semleges terület mindkét határvonalán. Vagy le kell pattanjon (földre, vagy akár egy fa lombjára), vagy passzolni kell egy bent tartózkodó társnak, vagy át kell futni vele. Rúgott labda esetén a földhöz érés is pattanásnak minősül. Szabálytalan átjutás esetén a labda visszakerül az eredeti bázisába.</li>
+        </ul>
+
+        <h2>3. Kiesés, Újraéledés és Felállás</h2>
+        <ul>
+            <li>Ha megérintenek (vagy lemész a pályáról), a saját bázisod hátsó vonaláig kell elfutnod, hogy újra játékba kerülj.</li>
+            <li>Ha a labda is nálad van, amikor megfognak, te is és a labda is meghal (a labda visszakerül a bázisba). Ha különváltok, csak az esik ki, akit megfogtak.</li>
+            <li>Halál esetén kötelező az újraéledésre törekedni megállás nélkül, az ellenfél akadályozása nélkül.</li>
+            <li><strong>Alapfelállás:</strong> Legalább egy embernek az ellenfél térfelén kell tartózkodnia. Ha 4 ember van hátul és az egyetlen elöl lévő visszalép, az illető meghal. Ha mindenki él és mindenki hátul van, a csapat fegyvertelen, míg egy ember át nem lép.</li>
+        </ul>
+
+        <h2>4. Pontszerzés és Védekező Idő</h2>
+        <ul>
+            <li><strong>Pontszerzés:</strong> Be kell jutni az ellenfél bázisába, majd onnan futva és passzolgatva visszavinni a labdát a saját bázisotokba. A pont akkor érvényes, ha a saját bázisodban birtoklod a labdát.</li>
+            <li><strong>Védekező idő:</strong> Ha pontszerzésnél az ellenfél tartózkodik a bázisodban, a labdás játékosotoknak meg kell érintenie az udvart jelölő karót. Ekkor a labda "hozzáragad" (nem engedheti el), és indul a bíró által mért 20 másodperc. Ha az idő lejár, a bázisban lévő védők kiesnek. Ha a labdát úgy viszik be, hogy bent ellenfél van (anélkül, hogy ez a folyamat lezajlana), az érvénytelen, és a labda is, a játékos is meghal.</li>
+        </ul>
+
+        <h2>5. Bírói Jelzések és Büntetések</h2>
+        <ul>
+            <li>Két játékvezető felügyeli a meccset.</li>
+            <li><strong>Sípjelzések:</strong> Rövid síp (megállás, pl. sérülésnél), Hosszú síp (meccs folytatása, pontszerzés), Hármas síp (negyed/meccs vége).</li>
+            <li><strong>Fegyelmezések:</strong> Szóbeli figyelmeztetés (pl. udvarban állás, reklamálás), Személyhiba = sárga lap (azonnali kiesés), Azonnali kiállítás = piros lap (2 perc vagy végleges). Két sárga lap is kiállítást ér.</li>
+            <li><strong>Passzivitás:</strong> Ha egy játékos legalább 1,5 percig áll az ellenfél bázisában kitörési kísérlet nélkül, szóbeli majd sárga lapos figyelmeztetést kap. "Szabad labda" esetén, ha a védők passzívan körülállják a kikerült labdát, a bíró figyelmeztetés után (kb. 1 perc) elveszi azt.</li>
+        </ul>
+
+        <div style="text-align: center;">
+            <a href="../index.html" class="vissza-gomb">Vissza a főoldalra</a>
+        </div>
+    </div>
+
+</body>
+</html>

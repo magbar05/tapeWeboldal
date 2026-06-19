@@ -1,137 +1,204 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tape - Hamarosan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAPE</title>
+    
+    <style>
+        /* 1. Alapbeállítások és menü */
+        html {
+            scroll-behavior: smooth;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            color: #ffffff;
+            background-color: #111; /* Sötét alap, ha a kép nem töltene be */
+        }
 
-<style>
-:root{
-    --bg:#0a0a0a;
-    --card:#111111;
-    --text:#ffffff;
-    --muted:#8b8b8b;
-    --accent:#ff3b3b;
-}
+        nav {
+            background-color: rgba(0, 0, 0, 0.7); /* Félig átlátszó fekete menü sáv */
+            padding: 15px;
+            position: fixed; /* A fixed miatt mindig a képernyő tetején lebeg, a képek felett */
+            width: 100%;
+            top: 0;
+            text-align: center;
+            z-index: 100;
+            backdrop-filter: blur(10px); /* Ez is kap egy kis üveghatást */
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
 
-body{
-    min-height:100vh;
-    background:
-        radial-gradient(circle at top, #151515 0%, #0a0a0a 60%);
-    font-family:'Inter',sans-serif;
-    color:var(--text);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-}
+        nav a:hover {
+            color: #2ed573;
+        }
 
-body::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:rgba(255,59,59,.08);
-    border-radius:50%;
-    filter:blur(120px);
-    animation:float 8s ease-in-out infinite;
-}
+        /* 2. Szekciók (A nagy hátterek) */
+        section {
+            min-height: 100vh; /* A 'vh' a képernyő magasságának százaléka. A 100vh kitölti a teljes képernyőt. */
+            background-size: cover; /* A kép kitölti a rendelkezésre álló helyet, nem torzul */
+            background-position: center; /* Középre igazítja a képet */
+            display: flex;
+            align-items: center; /* Függőlegesen középre húzza a benne lévő buborékot */
+            padding-top: 60px; /* Helyet hagyunk a fenti menünek */
+            box-sizing: border-box;
+        }
 
-.container{
-    text-align:center;
-    z-index:2;
-    padding:40px;
-}
+        /* Itt adjuk meg az adott témákhoz illő háttérképeket (később kicserélheted a sajátjaidra) */
+        #kezdooldal {
+            background-image: url('img/kezdolap/kezdooldal.JPG');
+        }
+        
+        #szabalyok {
+            /* Gombás, spórás, erdei hangulatú kép a játékfejlesztéshez */
+            background-image: url('img/kezdolap/szabalyok.JPG');
+        }
+        
+        #kozosseg {
+            /* Dinamikus, versenypályás hangulatú kép */
+            background-image: url('img/kezdolap/kozosseg.JPG');
+        }
 
-.logo{
-    width:220px;
-    max-width:70vw;
-    margin-bottom:40px;
-    animation:fadeUp 1.2s ease;
-    filter:drop-shadow(0 0 30px rgba(255,255,255,.08));
-}
+        #shop {
+            background-image: url('img/kezdolap/shop.JPG');
+        }
 
-h1{
-    font-size:clamp(3rem,8vw,6rem);
-    font-weight:600;
-    letter-spacing:-2px;
-    animation:fadeUp 1.4s ease;
-}
+        #korabbi_bajnoksagok {
+            background-image: url('img/kezdolap/korabbi_tape.JPG');
+        }
 
-p{
-    margin-top:15px;
-    color:var(--muted);
-    font-size:1.1rem;
-    animation:fadeUp 1.6s ease;
-}
+        #helyszin {
+            background-image: url('img/kezdolap/helyszin.JPG');
+        }
 
-.loader{
-    width:180px;
-    height:4px;
-    background:#1d1d1d;
-    margin:35px auto 0;
-    border-radius:999px;
-    overflow:hidden;
-}
+        /* 3. A Varázslat: A Félkör alakú Átlátszó Buborék */
+        .buborek {
+            background: rgba(30, 30, 45, 0.75); /* A negyedik érték (0.75) az átlátszóságot jelenti */
+            backdrop-filter: blur(8px); /* EZ csinálja a modern elmosódást a buborék mögött! */
+            width: 45%; /* A képernyő majdnem felét elfoglalja */
+            min-height: 50vh; /* Szép nagy, magas buborék */
+            
+            /* Így lesz félkör: bal felső (0), jobb felső (300px lekerekítés), jobb alsó (300px), bal alsó (0) */
+            border-radius: 0 300px 300px 0; 
+            
+            padding: 40px 80px 40px 50px; /* Belső üres hely, hogy a szöveg ne érjen a buborék kerek széléhez */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Balra igazítja a szöveget a buborékon belül */
+            box-shadow: 5px 0 25px rgba(0,0,0,0.5); /* Kis árnyékot vet, hogy térbeli legyen */
+        }
 
-.loader span{
-    display:block;
-    width:40%;
-    height:100%;
-    background:var(--accent);
-    border-radius:999px;
-    animation:loading 2s infinite ease-in-out;
-}
+        .buborek h2 {
+            color: #2ed573;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
 
-@keyframes loading{
-    0%{transform:translateX(-100%);}
-    100%{transform:translateX(350%);}
-}
+        .buborek p {
+            line-height: 1.6; /* Kényelmesebb sorköz az olvasáshoz */
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
+        /* 4. A Gomb dizájnja */
+        .gomb {
+            background-color: #ff4757;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px; /* Kerekített gomb a játékos hatásért */
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease; /* Finom animáció az egerészéshez */
+        }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-30px);
-    }
-}
-</style>
+        .gomb:hover {
+            background-color: #ff6b81;
+            transform: translateX(10px); /* Ha ráviszed az egeret, finoman jobbra csúszik */
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
+    <nav>
+        <a href="#kezdooldal">Főoldal</a>
+        <a href="#kozosseg">Közösség</a>
+        <a href="#szabalyok">Szabályok</a>
+        <a href="#shop">Shop</a>
+        <a href="#korabbi_bajnoksagok">Korábbi bajnokságok</a>
+        <a href="#helyszin">Helyszín</a>
+    </nav>
 
-    <img src="tape.jpg" alt="Tape Logo" class="logo">
+    <section id="kezdooldal">
+        <div class="buborek">
+            <h2>TAPE</h2>
+            <p>Üdvözlünk a TAPE weboldalán! Itt megtalálhatsz mindent ami a TAPE-hoz kapcsolódik</p>
+        </div>
+    </section>
 
-    <h1>Hamarosan...</h1>
+    <section id="kozosseg">
+        <div class="buborek">
+            <h2>A TAPE közössége</h2>
+            <p>A TAPE egy nagyon színes közösség, legfőképp Jánospálos diákok alkotják. A TAPE mint közösség természetesen nem évente kétszer a bajnokságokon találkozik, sok évközbeni programot is szervezünk.</p>
+            <a href="pages/kozosseg.html" class="gomb">Olvass tovább a közösségről.</a>
+        </div>
+    </section>
 
-    <p>Valami új készül a Tape-nél.</p>
+    <section id="szabalyok">
+        <div class="buborek">
+            <h2>Szabályok</h2>
+            <h3>Mi az a TAPE?</h3>
+            <p>Egy csapatjáték melyet leginkább a sprintek, s a labda passzolgatása (kézzel-lábbal) jellemez. A tapét két darab öt fős csapat játsza bírókkal, cserékkel</p>
+            <h3>Mi a játék célja?</h3>
+            <p>Hogy a te csapatod több pontot szerezzen, mint az ellenfélé. Egy meccs 4 negyedből áll, minden negyed 15 perces</p>
+            <a href="pages/szabalyok.html" class="gomb">Olvasd tovább a szabályokról.</a>
+        </div>
+    </section>
 
-    <div class="loader">
-        <span></span>
+    <section id="shop">
+        <div class="buborek">
+            <h2>TAPE Shop</h2>
+            <p>Ha szeretnél menő TAPE-s cuccokat venni, akkor ezt megteheted a lenti gombra kattintva</p>
+            <a href="pages/shop.html" class="gomb">Tovább a shopra.</a>
+        </div>
+    </section>
+
+    <section id="korabbi_bajnoksagok">
+        <div class="buborek">
+            <h2>Korábbi TAPE bajnokságok</h2>
+            <p>Az alábbi linkre kattintva megtekintheted a régebbi TAPE bajnokságokat.</p>
+            <a href="pages/korabbi_bajnoksagok.html" class="gomb">Korábbi bajnokságok.</a>
+        </div>
+    </section>
+
+    <section id="helyszin">
+    <div class="buborek">
+        <h2>TAPE Aréna</h2>
+        <p>Itt tartjuk a bajnokságokat!</p>
+        
+        <div class="terkep-keret">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.9090343401003!2d18.973943176448863!3d47.44082459941032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741e1c3af459725%3A0x97c2e4a8a309c56f!2sTape%20Ar%C3%A9na!5e1!3m2!1shu!2shu!4v1781884965655!5m2!1shu!2shu" 
+                width="100%" 
+                height="300" 
+                style="border:0; border-radius: 15px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </div>
-
-</div>
+</section>
 
 </body>
 </html>
